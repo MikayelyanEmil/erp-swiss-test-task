@@ -1,0 +1,11 @@
+.searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF01;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.searchbar div.d-flex {
+    width: 1106px;
+}
