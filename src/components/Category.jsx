@@ -8,16 +8,20 @@ export default function Category({ options, mainCategory }) {
     const [selectedOption, setSelectedOption] = useState('');
     const [passOpts, setPassOpts] = useState([]);
 
+    useEffect(() => {
+        setSelectedOption(selectedOption)
+    }, [selectedOption])
+
     return <>
         <div className={`select-options ${selectedOption != '' ? '' : 'active'}`}>
             <ul className="active">
                 {options.map && options.map(option => {
                     let name = option.name || Object.keys(option)[0];
-                    return <Option key={name} name={name} dataSub={option[name]} setPassOpts={setPassOpts} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+                    return <Option key={name} name={name} dataSub={option[name]} setPassOpts={setPassOpts} selectedOption={selectedOption} setSelectedOption={setSelectedOption} passOpts={passOpts}/>
                 })}
             </ul >
         </div>
-        {selectedOption != '' && <Category options={passOpts} />}
+        {window.innerWidth > 401 && selectedOption != '' && <Category options={passOpts} />}
         {(mainCategory && selectedOption == '') && <img src={image} width={800} height={500} alt="" />}
     </>
 }

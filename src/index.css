@@ -8,25 +8,151 @@ html {
 }
 
 #root {
-    width: 1440px;
+    width: 100%;
+    /* width: 1440px; */
     height: 1024px;
 }
 
-@media (max-width: 1440px) {
+/* @media (max-width: 1440px) {
     #root {
         width: 100%;
     }
-}
+} */
 
-@media (max-height: 1024px) {
+/* @media (max-height: 1024px) {
     #root {
         height: 100%;
     }
-}
+} */
 
 h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: #010114;
     font-size: 20px;
     font-weight: 600;
-    line-height: 30px;
+    line-height: 70px;
+}
+
+@media (min-width: 401px) {
+    .select-options.active {
+        background-color: #F1F1F1;
+    }
+
+    .main-category-block {
+        display: flex;
+    }
+
+    .header-items {
+        width: 1110px;
+        height: 50px;
+    }
+
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 413px;
+    }
+
+    .header-items span {
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    .site-logo {
+        position: absolute;
+        left: 47%
+    }
+
+    .contact {
+        display: flex;
+        align-items: center;
+    }
+
+    .site-logo .mobile {
+        display: none;
+    }
+
+    .header-items button,
+    .nav-menu,
+    .search-icon
+    {
+        display: none;
+    }
+
+
+}
+
+@media (max-width: 400px) {
+    .header-items button {
+        width: 120px;
+        height: 54px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        text-align: center;
+        background: transparent;
+        border: solid 1px #fff;
+        color: white;
+    }
+
+    header {
+        padding: 24px;
+    }
+
+    .header-items {
+        width: 100%;
+        align-items: center;
+    }
+
+    .site-logo .web {
+        display: none;
+    }
+
+    .navigation span {
+        display: none;
+    }
+
+    .searchbar {
+        display: none;
+    }
+
+    .contact {
+        display: none;
+    }
+
+    .main-content {
+        max-width: 345px;
+    }
+
+    .select-options {
+        padding: 0 10px;
+    }
+
+    .select-options.active {
+        /* border: #010114 solid; */
+    }
+
+    .select-options li {
+        background-color: #F1F1F1;
+    }
+
+    h3 {
+        padding: 0 10px;
+        margin: 0;
+    }
+
+    .select-options ul {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-category-block img {
+        display: none;
+    }
 }

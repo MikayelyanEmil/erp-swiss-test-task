@@ -10,10 +10,6 @@
     text-align: left;
 }
 
-.main-category-block {
-    display: flex;
-}
-
 .main-category-block img {
     flex: 1;
     margin-left: 30px;

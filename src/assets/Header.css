@@ -1,4 +1,12 @@
 header {
     background-color: #010114;
     padding: 21px 166px;
+    display: flex;
+    justify-content: center;
 }
+
+.header-items {
+    display: flex;
+    justify-content: space-between;
+}
+
