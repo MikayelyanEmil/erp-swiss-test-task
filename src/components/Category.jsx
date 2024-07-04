@@ -8,10 +8,6 @@ export default function Category({ options, mainCategory }) {
     const [selectedOption, setSelectedOption] = useState('');
     const [passOpts, setPassOpts] = useState([]);
 
-    useEffect(() => {
-        setSelectedOption(selectedOption)
-    }, [selectedOption])
-
     return <>
         <div className={`select-options ${selectedOption != '' ? '' : 'active'}`}>
             <ul className="active">
