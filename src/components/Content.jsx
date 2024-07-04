@@ -8,7 +8,7 @@ export default function Content() {
         <div className='main-content'>
             <h2>Schedule an Appointment</h2>
             <div className='main-category-block'>
-                <Category options={data} mainCategory={true} />
+                <Category options={data} categoryIndex={0} />
             </div>
         </div>
     )
