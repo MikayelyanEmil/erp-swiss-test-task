@@ -4,7 +4,7 @@ import Option from "./Option.js";
 class Category extends Component {
     constructor(props) {
         super(props);
-        this.state = { selectedOption: '', passOpts: [] };
+        this.state = { selectedOption: '', passOpts: [], categoryIndex: this.props.categoryIndex };
         this.parent = props.parentElement;
     }
 

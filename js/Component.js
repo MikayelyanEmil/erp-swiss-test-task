@@ -10,10 +10,10 @@ export default class Component {
     }
 
     _render() {
-        // this.parent.innerHTML = '';  
-        // this.parent.append(this.render());
-        const container = document.getElementsByClassName('main-category-block')[0];
         const startPoint = document.querySelector(`[data-category-index="${this.props.categoryIndex}"]`)
+        const container = window.innerWidth > 401 ? 
+            document.getElementsByClassName('main-category-block')[0] :
+            startPoint.parentElement;
         while (startPoint.nextSibling) {
           container.removeChild(startPoint.nextSibling);
         }

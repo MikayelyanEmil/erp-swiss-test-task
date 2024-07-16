@@ -174,7 +174,7 @@ header {
         display: none;
     }
 
-    .category-btn-unactive h3 {
+    .category-btn.unactive h3 {
         color: #CED4DA;
     }
 
@@ -262,7 +262,7 @@ header {
     }
 
     h3 {
-        padding: 12px 24px;
+        padding: 12px;
         line-height: 30px;
     }
 
