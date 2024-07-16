@@ -6,16 +6,22 @@ export default class Component {
 
     setState(newState) {
         this.state = { ...this.state, ...newState };
-        // this._render();
+        this._render();
     }
 
     _render() {
-        // const app = document.getElementById('app');
-        // app.innerHTML = '';
-        // app.appendChild(this.render());
+        // this.parent.innerHTML = '';  
+        // this.parent.append(this.render());
+        const container = document.getElementsByClassName('main-category-block')[0];
+        const startPoint = document.querySelector(`[data-category-index="${this.props.categoryIndex}"]`)
+        while (startPoint.nextSibling) {
+          container.removeChild(startPoint.nextSibling);
+        }
+        container.removeChild(startPoint);
+        container.append(this.render())
     }
 
     render() {
-        
+
     }
 }

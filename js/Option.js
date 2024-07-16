@@ -1,36 +1,38 @@
-import Category from "./Category.js";
 import Component from "./Component.js";
 
-export default class Option extends Component {
+class Option extends Component {
     constructor(props) {
         super(props);
     }
 
     handleClick(e) {
         if (!this.props.dataSub) return;
-        if (this.props.selectedOption == this.props.name) this.props.setState({ selectedOption: '' });
-        else if (this.props.selectedOption) {
+        if (this.props.state.selectedOption == this.props.name) {
+            console.log('current selected');
+            this.props.setState({ selectedOption: '' });
+        }
+        else if (this.props.state.selectedOption) {
+            console.log('other selected');
             this.props.setState({ selectedOption: '' });
             setTimeout(() => this.props.setState({ selectedOption: this.props.name }), 0);
         }
         else {
+            console.log('not selected yet');
             this.props.setState({ selectedOption: this.props.name });
         }
         this.props.setState({ passOpts: this.props.dataSub });
     }
 
-
-
     render() {
         const listItem = document.createElement('li');
-        listItem.className = `category-btn ${this.props.selectedOption && (this.props.selectedOption == this.props.name ? 'active' : 'unactive')} category-index-${this.props.categoryIndex}`
+        listItem.className = `category-btn ${this.props.state.selectedOption && (this.props.state.selectedOption == this.props.name ? 'active' : 'unactive')} category-index-${this.props.categoryIndex}`
         listItem.dataset.name = this.props.name;
         listItem.dataset.sub = this.props.dataSub;
 
         let optionHeading;
         if (window.innerWidth < 400) {
             optionHeading = document.createElement(`h${3 + this.props.categoryIndex}`);
-            const stringHtml = `${this.props.name}${this.props.selectedOption == this.props.name ?
+            const stringHtml = `${this.props.name}${this.props.state.selectedOption == this.props.name ?
                 `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 15L12 9L6 15" stroke="#010114"/>
                 </svg>`
@@ -48,9 +50,10 @@ export default class Option extends Component {
         }
 
         optionHeading.onclick = (e) => this.handleClick(e);
-
         listItem.append(optionHeading);
+
         return listItem;
     }
 
 }
+export default Option

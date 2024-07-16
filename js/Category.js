@@ -1,10 +1,11 @@
 import Component from "./Component.js";
 import Option from "./Option.js";
 
-export default class Category extends Component {
+class Category extends Component {
     constructor(props) {
-        super(props)
-        this.state = { selectedOption: '', passOpts: [] }
+        super(props);
+        this.state = { selectedOption: '', passOpts: [] };
+        this.parent = props.parentElement;
     }
 
     render() {
@@ -18,7 +19,7 @@ export default class Category extends Component {
 
         this.props.options.forEach(option => {
             let name = option.name || Object.keys(option)[0];
-            let optionElement = new Option({name, dataSub: option[name], selectedOption: this.state.selectedOption, passOpts: this.state.passOpts, setState: this.setState });
+            let optionElement = new Option({name, dataSub: option[name], state: this.state, setState: this.setState.bind(this) });
             unorderedList.append(optionElement.render());
         });
 
@@ -26,8 +27,7 @@ export default class Category extends Component {
         fragment.append(optionsContainer);
 
         if (window.innerWidth > 401 && this.state.selectedOption != '') {
-            console.log(this.state.selectedOption);
-            const category = new Category({ options: this.state.passOpts });
+            const category = new Category({ options: this.state.passOpts, categoryIndex: this.props.categoryIndex + 1 });
             fragment.append(category.render());
         }
         else if (this.props.categoryIndex == 0 && this.state.selectedOption == '') {
@@ -41,3 +41,4 @@ export default class Category extends Component {
         return fragment;
     }
 }
+export default Category;
